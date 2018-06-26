@@ -16,15 +16,45 @@
         <div class="col-xs-8">
             <ul>
                 <li>{{ $user->name }}</li>
+
+                
+                @if (isset($profile->age))
                 <li>{{ $profile->age }}</li>
+                @endif
+                
+                @if (isset($profile->sex))
                 <li>{{ $profile->sex }}</li>
+                @endif
+                
+                @if (isset($profile->birthday))
                 <li>{{ $profile->birthday }}</li>
+                @endif
+                
+                @if (isset($profile->family))
                 <li>{{ $profile->family }}</li>
+                @endif
+                
+                @if (isset($profile->hometown))
                 <li>{{ $profile->hometown }}</li>
+                @endif
+                
+                @if (isset($profile->dislike))
                 <li>{{ $profile->dislike }}</li>
+                @endif
+                
+                @if (isset($profile->beento))
                 <li>{{ $profile->beento }}</li>
+                @endif
+                
+                @if (isset($profile->comment))
                 <li>{{ $profile->comment }}</li>
+                @endif
+            
             </ul>
         </div>
+        <div>
+           <p>{!! link_to_route('users.edit', '編集ページ', ['id' => $user->id]) !!}</p>
+        </div>
+        <!--/編集ボタン作った/-->
     </div>
 @endsection
