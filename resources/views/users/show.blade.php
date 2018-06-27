@@ -26,9 +26,7 @@
                 <li>{{ $profile->sex }}</li>
                 @endif
                 
-                @if (isset($profile->birthday))
-                <li>{{ $profile->birthday }}</li>
-                @endif
+               
                 
                 @if (isset($profile->family))
                 <li>{{ $profile->family }}</li>

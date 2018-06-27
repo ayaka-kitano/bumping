@@ -17,7 +17,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ route('users.index') }}">My profile</a></li>
-                                <li><a href="#">Searching</a></li>
+                                <li><a href="{{ route('search.index') }}">Searching</a></li>
                                 <li><a href="{{ route('ranking.index') }}">Ranking</a></li>
                                 
                                 <li role="separator" class="divider"></li>

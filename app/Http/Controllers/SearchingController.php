@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\User;
-class RankingController extends Controller
+
+class SearchingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,50 +13,22 @@ class RankingController extends Controller
      */
     public function index()
     {
-          if (\Auth::check()) {
+        if (\Auth::check()) {
             $user = \Auth::user();
             $profile=$user->profile()->getResults();
-            
-            $users = \DB::table('users')->count();
-             $num=range(1,$users);
-             shuffle($num);
-             $i=1;
-             foreach($num as $random_num)
-             
-             {if($i> 2){
-                 break;
-             }
-            
-                 $favorite_user = User::find($random_num);
-                 if($user->id!== $favorite_user->id){
-                 $favorite_users[] = $favorite_user;
-                               $i++;
-                 }
-                 
- 
-               
-               
-             }
-             
-             
-             
             $data = [
-                'favorite_users'=>$favorite_users,
-                  ];
-              return view('ranking.ranking', $data);
-             }else {
+                'user' => $user,/*name,e-mail,password*/
+                'profile' =>$profile,
+                
+                
+            ];
+            return view('search.search', $data);
+        }else {
             return view('welcome');
-             }
-            
-    
-
-
-             
-             
-             
+        }
     
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
